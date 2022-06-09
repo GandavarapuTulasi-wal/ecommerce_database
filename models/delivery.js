@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      delivery.belongsTo(models.order_items, {
+      delivery.hasOne(models.order_items, {
         foreignKey: 'deliveryId',
-        onDelete: 'CASCADE',
+        as: 'deliveries',
       });
     }
   }

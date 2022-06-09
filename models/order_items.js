@@ -17,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'productId',
         onDelete: 'CASCADE',
       });
-      order_items.hasOne(models.delivery, {
+      order_items.belongsTo(models.delivery, {
         foreignKey: 'deliveryId',
-        as: 'order_items',
+        onDelete: 'CASCADE',
       });
       order_items.hasOne(models.Return, {
         foreignKey: 'orderItem_id',
@@ -39,5 +39,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'order_items',
     }
   );
-  return order - items;
+  return order_items;
 };
